@@ -2,6 +2,10 @@
  * Represents a standard playing card
  */
 class Card {
+    #value = '';
+    #suite = '';
+    #revealed = null;
+
     /**
      * 
      * @param {String} value - Value of playing card
@@ -9,44 +13,49 @@ class Card {
      * @param {Boolean} [revealed=false] - (Default: false) Determines if the player can see the value and suite of card
      */
     constructor(value, suite, revealed=false) {
-        this.value = value
-        this.suite = suite
-        this.revealed = revealed
+        this.#value = value
+        this.#suite = suite
+        this.#revealed = revealed
     }
 
     /**
      * Gets value of card (1-Ace)
      */
     getValue() {
-        return this.value
+        return this.#value
     }
 
     /**
      * Gets suite of card (Hearts, Diamonds, Spades, or Clubs)
      */
     getSuite() {
-        return this.suite
+        return this.#suite
     }
 
     /**
      * Gets the color of the card, red or black
      */
     getColor() {
-        return this.revealed ? this.suite === 'H' || this.suite === 'D' ? 'red' : 'black' : ''  
+        return this.#revealed ? this.#suite === 'H' || this.#suite === 'D' ? 'red' : 'black' : ''  
     }
 
     /**
      * Checks if the card is face-up
      */
     isRevealed() {
-        return this.revealed
+        return this.#revealed
     }
 
     /**
      * Flips the card, negating its reveal state
      */
     flip() {
-        this.revealed = !this.revealed
+        this.#revealed = !this.#revealed
+    }
+
+    compare(otherCard) {
+        const VALS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        return VALS.indexOf(this.#value) - VALS.indexOf(otherCard.getValue());
     }
 
     /**
@@ -72,7 +81,7 @@ class Card {
         suitesValues.set('C', 'Clubs')
         suitesValues.set('S', 'Spades')
 
-        return this.revealed ? `${suitesValues.get(this.value)} of ${suitesValues.get(this.suite)}` : ''
+        return this.#revealed ? `${suitesValues.get(this.#value)} of ${suitesValues.get(this.#suite)}` : ''
     }
 }
 

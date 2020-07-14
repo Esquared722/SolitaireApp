@@ -20,6 +20,11 @@ class Hand extends Deck{
             this.deck[i] = this.deck[j];
             this.deck[j] = tmp;
         }
+    }
 
+    transfer(talon) {
+        let handCard = this.deck.pop();
+        handCard.flip();
+        talon.push(handCard);
     }
 }
