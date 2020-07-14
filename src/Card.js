@@ -72,7 +72,7 @@ class Card {
         suitesValues.set('C', 'Clubs')
         suitesValues.set('S', 'Spades')
 
-        return this.revealed ? suitesValues.get(this.value) + " of " + suitesValues.get(this.suite) : ''
+        return this.revealed ? `${suitesValues.get(this.value)} of ${suitesValues.get(this.suite)}` : ''
     }
 }
 
