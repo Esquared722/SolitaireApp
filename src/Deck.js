@@ -26,11 +26,9 @@ class Deck {
      */
     toString() {
         let strDeck = '';
-        let ctr = 0
 
         this.deck.forEach(card => {
-            ctr != this.deck.length - 1 ? strDeck += `${card.toString()}\n` : strDeck += card.toString();
-            ctr++;
+            strDeck += `${card.toString()} `;
         });
 
         return strDeck;

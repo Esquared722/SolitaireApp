@@ -28,3 +28,5 @@ class Hand extends Deck{
         talon.push(handCard);
     }
 }
+
+module.exports = Hand;
