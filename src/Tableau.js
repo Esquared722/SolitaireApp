@@ -33,6 +33,10 @@ class TabDeck extends Deck {
 
         throw null;
     }
+
+    revealTop() {
+        this.deck[0].flip();
+    }
 }
 
 class Tableau {
