@@ -14,15 +14,12 @@ class FoundDeck extends Deck {
     }
 
     transfer(card) {
-        try {
-            if (this.#suite === card.getSuite() &&
-                ((this.deck.length === 0 && card.getValue() === 'A') ||
-                    this.deck[this.deck.length - 1].compare(card) === -1)) {
-                this.deck.push(card);
-                return;
-            }
-        } catch (TypeError) {}
-        throw null;
+        if (this.#suite === card.getSuite() &&
+            ((this.deck.length === 0 && card.getValue() === 'A') ||
+                this.deck.getTopCard().compare(card) === -1)) {
+            this.deck.push(card);
+            return;
+        }
     }
 }
 
@@ -38,6 +35,15 @@ class Foundation {
 
     transfer(card) {
         this.#decks.get(card.getSuite()).transfer(card);
+    }
+
+    isFull() {
+        return (
+            (this.#decks.get('H').length +
+                this.#decks.get('S').length +
+                this.#decks.get('C').length +
+                this.#decks.get('D').length) === 52
+        );
     }
 
     toString() {

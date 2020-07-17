@@ -21,6 +21,10 @@ class Deck {
         }
     }
 
+    getTopCard() {
+        return this.deck[this.deck.length - 1];
+    }
+
     /**
      * Stringifies the deck
      */

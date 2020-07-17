@@ -5,6 +5,7 @@ class Card {
     #value = '';
     #suite = '';
     #revealed = null;
+    #color = '';
 
     /**
      * 
@@ -16,6 +17,7 @@ class Card {
         this.#value = value
         this.#suite = suite
         this.#revealed = revealed
+        this.#color = this.#suite === 'H' || this.#suite === 'D' ? 'red' : 'black'
     }
 
     /**
@@ -36,7 +38,7 @@ class Card {
      * Gets the color of the card, red or black
      */
     getColor() {
-        return this.#revealed ? this.#suite === 'H' || this.#suite === 'D' ? 'red' : 'black' : ''  
+        return this.#color  
     }
 
     /**
@@ -53,9 +55,13 @@ class Card {
         this.#revealed = !this.#revealed
     }
 
-    compare(otherCard) {
+    compare(otherCard, color=false) {
         const VALS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
         return VALS.indexOf(this.#value) - VALS.indexOf(otherCard.getValue());
+    }
+
+    oppColor(otherCard) {
+        return this.#color !== otherCard.getColor();
     }
 
     /**
