@@ -1,7 +1,7 @@
 const Deck = require('./Deck')
 const Card = require('./Card');
 
-class Hand extends Deck{
+class Stock extends Deck{
     constructor() {
         super()
         const VALS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
@@ -29,4 +29,4 @@ class Hand extends Deck{
     }
 }
 
-module.exports = Hand;
+module.exports = Stock;

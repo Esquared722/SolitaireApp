@@ -1,5 +1,6 @@
 const Deck = require("./Deck");
 const Card = require("./Card");
+const Tableau = require("./Tableau");
 
 class FoundDeck extends Deck {
     #suite = '';
@@ -13,13 +14,29 @@ class FoundDeck extends Deck {
         return this.#suite;
     }
 
-    transfer(card) {
+    /**
+     * 
+     * @param {Card} card - card received from Talon or Tableau 
+     */
+    receive(card) {
         if (this.#suite === card.getSuite() &&
             ((this.deck.length === 0 && card.getValue() === 'A') ||
                 this.deck.getTopCard().compare(card) === -1)) {
-            this.deck.push(card);
+            this.deck.unshift(card);
             return;
         }
+        throw null;
+    }
+
+    /**
+     * Card being transferred to Tableau
+     * @param {Number} deckIdx 
+     * @param {Card} card 
+     * @param {Tableau} Tableau 
+     */
+    give(deckIdx, card, Tableau) {
+        this.deck.shift(card);
+        Tableau.receiveCard(deckIdx, card);
     }
 }
 
