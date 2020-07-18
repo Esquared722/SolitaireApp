@@ -6,14 +6,24 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.top}>
         <View style={styles.foundation}>
-          <Text style={{color: 'white'}}>Foundation</Text>
+          <View style={styles.foundChild}><Text>FoundDeck#1</Text></View>
+          <View style={styles.foundChild}><Text>FoundDeck#2</Text></View>
+          <View style={styles.foundChild}><Text>FoundDeck#3</Text></View>
+          <View style={styles.foundChild}><Text>FoundDeck#4</Text></View>
         </View>
         <View style={styles.deck}>
-          <Text style={{color: 'white'}}>Deck/Waste</Text>
+          <View style={styles.deckChild}><Text>Talon</Text></View>
+          <View style={styles.deckChild}><Text>Hand</Text></View>
         </View>
       </View>
-      <View style={styles.bottom}>
-        <Text style={{color: 'white'}}>Tableau</Text>
+      <View style={styles.tableau}>
+        <View style={styles.tabChild}><Text>TabDeck #0</Text></View>
+        <View style={styles.tabChild}><Text>TabDeck #1</Text></View>
+        <View style={styles.tabChild}><Text>TabDeck #2</Text></View>
+        <View style={styles.tabChild}><Text>TabDeck #3</Text></View>
+        <View style={styles.tabChild}><Text>TabDeck #4</Text></View>
+        <View style={styles.tabChild}><Text>TabDeck #5</Text></View>
+        <View style={styles.tabChild}><Text>TabDeck #6</Text></View>
       </View>
     </View>
   );
@@ -27,21 +37,39 @@ const styles = StyleSheet.create({
     flex: 2,
     flexDirection: 'row'
   },
-  bottom: {
+  tableau: {
     flex: 8,
+    flexDirection: 'row',
     backgroundColor: 'blue',
+    padding: 10
+  },
+  tabChild: {
+    flex: 1,
+    backgroundColor: 'grey',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: 5
   },
   foundation: {
     flex: 6,
-    backgroundColor: 'green',
+    flexDirection: 'row',
+    padding: 10,
+    backgroundColor: 'pink'
+  },
+  foundChild: {
+    flex: 1,
+    backgroundColor: 'yellow',
     alignItems: 'center',
     justifyContent: 'center'
   },
   deck: {
     flex: 4,
-    backgroundColor: 'gray',
+    flexDirection: 'row',
+    padding: 10
+  },
+  deckChild: {
+    flex: 1,
+    backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center'
   }
