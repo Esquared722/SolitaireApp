@@ -5,7 +5,7 @@ const Deck = require('./Deck')
 
 
 class Solitaire {
-    #stock = null;
+    #stock = [];
     #talon = null;
     #foundation = null;
     #tableau = null;
@@ -15,7 +15,8 @@ class Solitaire {
         this.#talon = new Deck();
         this.#foundation = new Foundation();
         this.#tableau = new Tableau();
-        this.#tableau.init();
+        console.log(typeof this.#stock)
+        this.#tableau.init(this.#stock);
     }
 
     isWin() {
@@ -47,3 +48,5 @@ class Solitaire {
 
 
 }
+
+module.exports = Solitaire

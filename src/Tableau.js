@@ -48,6 +48,10 @@ class Tableau {
         ];
     }
 
+    init(stock) {
+        this.initRec(stock, 0)
+    }
+
     /**
      * **Initializes the tableau at game start**
      * - Recursively fills all 7 tableau decks
@@ -56,8 +60,8 @@ class Tableau {
      * @param {Stock} stock - starting, shuffled Hand 
      * @param {Number} deckIdx - index of deck that is given the revealed card.
      */
-    init(stock, deckIdx) {
-        this.#table[deckIdx].unshift(stock.shift().flip());
+    initRec(stock, deckIdx) {
+        this.#table[deckIdx].push(stock.pop().flip());
 
         if (deckIdx === 6) return; // Base Case
 

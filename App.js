@@ -1,29 +1,176 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Asset } from 'expo-asset'
+import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+const Solitaire = require('./src/Solitaire')
+const {width, height } = Dimensions.get('window');
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
         <View style={styles.foundation}>
-          <View style={styles.foundChild}><Text>FoundDeck#1</Text></View>
-          <View style={styles.foundChild}><Text>FoundDeck#2</Text></View>
-          <View style={styles.foundChild}><Text>FoundDeck#3</Text></View>
-          <View style={styles.foundChild}><Text>FoundDeck#4</Text></View>
+          <View style={styles.foundChild}>
+            <Image 
+                source={{uri: Asset.fromModule(require('./assets/cards/AC.png')).uri}}
+                style={styles.card}
+            />
+          </View>
+          <View style={styles.foundChild}>
+            <Image 
+                source={{uri: Asset.fromModule(require('./assets/cards/AS.png')).uri}}
+                style={styles.card}
+            />
+          </View>
+          <View style={styles.foundChild}>
+          <Image 
+                source={{uri: Asset.fromModule(require('./assets/cards/AD.png')).uri}}
+                style={styles.card}
+                 />
+          </View>
+          <View style={styles.foundChild}>
+            <Image 
+              source={{uri: Asset.fromModule(require('./assets/cards/AH.png')).uri}}
+              style={styles.card}
+            />
+          </View>
         </View>
         <View style={styles.deck}>
           <View style={styles.deckChild}><Text>Talon</Text></View>
-          <View style={styles.deckChild}><Text>Hand</Text></View>
+          <View style={styles.deckChild}>
+            <Image
+              source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+              style={styles.card}
+            />
+          </View>
         </View>
       </View>
       <View style={styles.tableau}>
-        <View style={styles.tabChild}><Text>TabDeck #0</Text></View>
-        <View style={styles.tabChild}><Text>TabDeck #1</Text></View>
-        <View style={styles.tabChild}><Text>TabDeck #2</Text></View>
-        <View style={styles.tabChild}><Text>TabDeck #3</Text></View>
-        <View style={styles.tabChild}><Text>TabDeck #4</Text></View>
-        <View style={styles.tabChild}><Text>TabDeck #5</Text></View>
-        <View style={styles.tabChild}><Text>TabDeck #6</Text></View>
+        <View style={styles.tabChild}>
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/2C.png')).uri}}
+            style={{height: 80, width: 50}}
+          />
+        </View>
+        <View style={styles.tabChild}>
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/3C.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+        </View>
+        <View style={styles.tabChild}>
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/4C.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+        </View>
+        <View style={styles.tabChild}>
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/5C.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+        </View>
+        <View style={styles.tabChild}>
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/6C.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+        </View>
+        <View style={styles.tabChild}>
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/JC.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+        </View>
+        <View style={styles.tabChild}>
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/blue_back.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+          <Image
+            source={{uri: Asset.fromModule(require('./assets/cards/KC.png')).uri}}
+            style={{height: 80, width: 50, marginTop: -55}}
+          />
+        </View>
       </View>
     </View>
   );
@@ -31,7 +178,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'green'
   },
   top: {
     flex: 2,
@@ -47,7 +195,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'grey',
     alignItems: 'center',
-    justifyContent: 'center',
     padding: 5
   },
   foundation: {
@@ -72,5 +219,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  card: {
+    height: 80,
+    width: 50
   }
 });
+
+export default App;
