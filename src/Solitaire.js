@@ -15,7 +15,6 @@ class Solitaire {
         this.#talon = new Deck();
         this.#foundation = new Foundation();
         this.#tableau = new Tableau();
-        console.log(typeof this.#stock)
         this.#tableau.init(this.#stock);
     }
 
