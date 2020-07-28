@@ -5,6 +5,8 @@ import { StatusBar } from 'expo-status-bar';
 import Icon from 'react-native-vector-icons/FontAwesome'
 const Solitaire = require('./src/Solitaire')
 const {width, height } = Dimensions.get('window');
+const game = new Solitaire();
+
 
 const App = () => {
   return (
@@ -64,14 +66,26 @@ const Stalon = () => {
   );
 }
 
+const generateTabDeck = (TabDeck) => {
+  let tabImgs = [];
+  TabDeck.getDeck().foreach(card => {
+    if(card.isRevealed()) {
+      tabImgs += card.toString();
+    }
+  });
+  return tabImgs;
+}
+
 const Tableau = () => {
   return(
     <View style={styles.tableau}>
       <View style={styles.tabChild}>
-        <Image
+        {generateTabDeck(game.getTab().getTabDeck(0).getDeck()).
+        map(card => <Image source={{uri:Asset.fromModule(require(`./assets/cards/${card}`))}} style={styles.card}/>)}
+        {/* <Image
           source={{uri: Asset.fromModule(require('./assets/cards/2C.png')).uri}}
           style={{height: 80, width: 50}}
-        />
+        /> */}
       </View>
       <View style={styles.tabChild}>
         <Image
@@ -234,7 +248,6 @@ const styles = StyleSheet.create({
   },
   deckChild: {
     flex: 1,
-    backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center'
   },

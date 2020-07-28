@@ -21,7 +21,7 @@ class Stock extends Deck{
             this.deck[j] = tmp;
         }
     }
-
+    
     transfer(talon) {
         let handCard = this.deck.pop();
         handCard.flip();

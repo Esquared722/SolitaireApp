@@ -15,7 +15,7 @@ class Solitaire {
         this.#talon = new Deck();
         this.#foundation = new Foundation();
         this.#tableau = new Tableau();
-        this.#tableau.init(this.#stock);
+        this.#tableau.init(this.#stock.deck);
     }
 
     isWin() {

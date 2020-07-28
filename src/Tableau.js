@@ -3,6 +3,7 @@ const Card = require('./Card');
 const Stock = require('./Stock');
 
 class TabDeck extends Deck {
+    length = this.deck.length
     constructor() {
         super();
     }
@@ -34,6 +35,10 @@ class TabDeck extends Deck {
         throw null;
     }
 
+    getDeck() {
+        return this.deck;
+    }
+
     revealTop() {
         this.deck[0].flip();
     }
@@ -61,16 +66,18 @@ class Tableau {
      * @param {Number} deckIdx - index of deck that is given the revealed card.
      */
     initRec(stock, deckIdx) {
-        this.#table[deckIdx].push(stock.pop().flip());
+        let revCard = stock.pop();
+        revCard.flip();
+        this.#table[deckIdx].deck.push(revCard);
 
         if (deckIdx === 6) return; // Base Case
 
         // Recursive Step
         for (let i = deckIdx + 1; i < this.#table.length; i++) {
-            this.#table[i].unshift(stock.shift());
+            this.#table[i].deck.push(stock.pop());
         }
 
-        this.init(stock, deckIdx + 1);
+        this.initRec(stock, deckIdx + 1);
     }
 
     /**
@@ -89,6 +96,10 @@ class Tableau {
      */
     receiveCard(deckIdx, card) {
         this.#table[deckIdx].transfer(new Deck([card]));
+    }
+
+    getTabDeck(idx) {
+        return this.#table[idx];
     }
 }
 
